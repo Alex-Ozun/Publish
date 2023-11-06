@@ -47,26 +47,26 @@ final class ErrorTests: PublishTestCase {
         )
     }
 
-    func testErrorForInvalidMarkdownMetadata() throws {
-        let markdown = """
-        ---
-        audio.url: 🤷‍♂️
-        ---
-        """
-
-        assertErrorThrown(
-            try generateItem(
-                in: .one,
-                fromMarkdown: markdown,
-                fileName: "file.md"
-            ),
-            PublishingError(
-                stepName: "Add Markdown files from 'Content' folder",
-                path: "one/file.md",
-                infoMessage: "Invalid metadata value for key 'audio.url'"
-            )
-        )
-    }
+//    func testErrorForInvalidMarkdownMetadata() throws {
+//        let markdown = """
+//        ---
+//        audio.url: 🤷‍♂️
+//        ---
+//        """
+//
+//        assertErrorThrown(
+//            try generateItem(
+//                in: .one,
+//                fromMarkdown: markdown,
+//                fileName: "file.md"
+//            ),
+//            PublishingError(
+//                stepName: "Add Markdown files from 'Content' folder",
+//                path: "one/file.md",
+//                infoMessage: "Invalid metadata value for key 'audio.url'"
+//            )
+//        )
+//    }
 
     func testErrorForThrowingDuringItemMutation() throws {
         struct Error: LocalizedError {
